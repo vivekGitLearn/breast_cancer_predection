@@ -1,13 +1,5 @@
 import flask
 import pickle
-import pandas as pd
-import sklearn.linear_model.base
-import sklearn.datasets
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-
-
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -66,9 +58,9 @@ def predict():
 
     # Convert the prediction (0 or 1) to a meaningful result
     if prediction[0] == 0:
-        result = 'Benign'
-    else:
         result = 'Malignant'
+    else:
+        result = 'Benign'
 
     return render_template('result.html', prediction=result)
 if __name__ == '__main__':
